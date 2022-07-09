@@ -55,28 +55,62 @@ namespace home4csh
                 for (int i = 0; i < Array.Length; i++)
                     Console.Write(Array[i]+"\t");
             }
-            int a, b;
+            int a, b,c=1;
             int[] array = new int[8];
-            Console.Write("программа принимает на вход два числа и возводит первое в степень второго\n" +
-                "введите число А: ");
-            a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("введите число Б: ");
-            b = Convert.ToInt32(Console.ReadLine());
-            Console.Write(a + " в степени " + b + " = ");
-            foo1(a, b);
-            Console.WriteLine("\n для продолжения нажмите любую клавишу\n");
-            Console.ReadKey();
-            Console.Write("программа выдает сумму цифр в числе\n введите число:");
-            a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("сумма цифр числа  = "+ foo2(a));
-            Console.WriteLine("для продолжения нажмите чего нибудь.");
-            Console.ReadKey();
-            Console.WriteLine("создает массив из 8и рандомных элементов\n для продолжения нажмите кнопку");
-            foo_arr(array);
-            print_arr(array);
-            Console.WriteLine("\nжми клавишу\n");
-            Console.ReadKey();
-        
+            while (c != 0)
+            {
+                
+                Console.WriteLine("выберите номер задачи:\n" +
+                    "1.программа принимает два числа и возводит первое число в натуральную степень второго числа\n" +
+                    "2.программа выдает сумму цифр введенного числа\n" +
+                    "3.создание массива с рандомными элементами. размер массива = 8\n" +
+                    "0.выход\n");
+                c = Convert.ToInt32(Console.ReadLine());
+                switch (c)
+                {
+                    case 1:
+                        {
+                            Console.Write("программа принимает на вход два числа и возводит первое в степень второго\n" +
+                                "введите число А: ");
+                            a = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("введите число Б: ");
+                            b = Convert.ToInt32(Console.ReadLine());
+                            Console.Write(a + " в степени " + b + " = ");
+                            foo1(a, b);
+                            Console.WriteLine("\n для продолжения нажмите любую клавишу\n");
+                            Console.ReadKey();
+                        }
+                        break;
+                    case 2:
+                        {
+                            Console.Write("программа выдает сумму цифр в числе\n введите число:");
+                            a = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("сумма цифр числа  = " + foo2(a));
+                            Console.WriteLine("для продолжения нажмите чего нибудь.");
+                            Console.ReadKey();
+                        }
+                        break;
+                    case 3:
+                        {
+                            Console.WriteLine("создает массив из 8и рандомных элементов\n для продолжения нажмите кнопку");
+                            foo_arr(array);
+                            print_arr(array);
+                            Console.WriteLine("\nжми клавишу\n");
+                            Console.ReadKey();
+                        }
+                        break;
+                    case 0:
+                        break;
+                    default:
+                        {
+                            Console.WriteLine("ошибка ввода, нажмите любую кнопку и попробуте снова");
+                            Console.ReadKey();
+                        }
+                        break;
+                        }
+            }
+            Console.WriteLine("спасибо за проверку");
+            System.Threading.Thread.Sleep(2500);
         }
     }
 }
